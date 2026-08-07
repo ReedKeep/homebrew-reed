@@ -10,23 +10,24 @@ class Reed < Formula
   # The source is not published yet. `:cannot_represent` is the honest answer here, not `:proprietary`,
   # which Homebrew does not have.
   license :cannot_represent
-  version "0.0.0"
+  version "0.1.0"
 
   on_macos do
     # One universal binary: the installer asks `uname -s` and nothing else on Darwin, so Intel and Apple
     # Silicon take the same file and the kernel picks.
-    url "https://github.com/ReedKeep/reed/releases/download/v0.0.0/reed-macos-universal.tar.gz"
-    sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+    url "https://github.com/ReedKeep/reed/releases/download/v0.1.0/reed-macos-universal.tar.gz"
+    sha256 "5daba67b21ecd3737c76df6557c660e77cbbb1669dbd61be52d5e0e94bb4a650"
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/ReedKeep/reed/releases/download/v0.0.0/reed-linux-x86_64.tar.gz"
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+      url "https://github.com/ReedKeep/reed/releases/download/v0.1.0/reed-linux-x86_64.tar.gz"
+      sha256 "08b5c9a4053617878e8a5f59c90fa609ae61ca2bb3297c03d026dda2c8adb4a2"
     end
     on_arm do
-      url "https://github.com/ReedKeep/reed/releases/download/v0.0.0/reed-linux-aarch64.tar.gz"
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+      # No ARM Linux build yet: there is no machine here to build one on. Saying so beats a 404, and
+      # `cargo install --path crates/reed` works if you have the source.
+      odie "reed has no Linux ARM build yet - build from source, or open an issue and we will prioritise it"
     end
   end
 
