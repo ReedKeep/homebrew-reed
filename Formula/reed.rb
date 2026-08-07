@@ -16,13 +16,13 @@ class Reed < Formula
     # One universal binary: the installer asks `uname -s` and nothing else on Darwin, so Intel and Apple
     # Silicon take the same file and the kernel picks.
     url "https://github.com/ReedKeep/reed/releases/download/v0.1.0/reed-macos-universal.tar.gz"
-    sha256 "5daba67b21ecd3737c76df6557c660e77cbbb1669dbd61be52d5e0e94bb4a650"
+    sha256 "e2a06193b3850047d14078b08b30cdf38bfdf8ca9e3903f945290a3aecc804ce"
   end
 
   on_linux do
     on_intel do
       url "https://github.com/ReedKeep/reed/releases/download/v0.1.0/reed-linux-x86_64.tar.gz"
-      sha256 "08b5c9a4053617878e8a5f59c90fa609ae61ca2bb3297c03d026dda2c8adb4a2"
+      sha256 "5a6b9ec4549bf409aa9befa33a959a2410ab7aa3f640c4e227b24c7f46011f08"
     end
     on_arm do
       # No ARM Linux build yet: there is no machine here to build one on. Saying so beats a 404, and
