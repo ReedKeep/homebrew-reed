@@ -1,28 +1,32 @@
 # The reed formula.
 #
-# **Kept up to date by the release workflow, not by hand.** `ReedKeep/reed-private`'s release job knows the
-# version and has already computed every SHA-256 for its own `SHA256SUMS`, so it rewrites the four values
-# below and commits. A formula whose checksum is edited by a person is a formula that is eventually wrong,
-# and `brew` will refuse the install rather than tell you why in a way that helps.
+# **Written by the release, not by hand.** `dist/release.sh` has already hashed every asset for
+# `SHA256SUMS`, so it rewrites the version and the checksums below from those exact bytes. A formula whose
+# checksum is typed by a person is one that is eventually wrong, and `brew` answers that by refusing the
+# install rather than explaining it in a way that helps.
+#
+# **This lives in the same repository as everything else** rather than a separate `homebrew-reed` tap. The
+# cost is one extra word at install time — `brew tap` needs the URL, because Homebrew's short form only
+# resolves a repo literally named `homebrew-<x>`. One repo to find, one place to look.
 class Reed < Formula
   desc "One folder, every machine you own"
   homepage "https://github.com/ReedKeep/reed"
   # The source is not published yet. `:cannot_represent` is the honest answer here, not `:proprietary`,
   # which Homebrew does not have.
   license :cannot_represent
-  version "0.1.0"
+  version "0.1.2"
 
   on_macos do
     # One universal binary: the installer asks `uname -s` and nothing else on Darwin, so Intel and Apple
     # Silicon take the same file and the kernel picks.
-    url "https://github.com/ReedKeep/reed/releases/download/v0.1.0/reed-macos-universal.tar.gz"
-    sha256 "e2a06193b3850047d14078b08b30cdf38bfdf8ca9e3903f945290a3aecc804ce"
+    url "https://github.com/ReedKeep/reed/releases/download/v0.1.2/reed-macos-universal.tar.gz"
+    sha256 "4c9c6abe7875b65b9437f547aae795418469a54f9c0740ebab295735a882111e"
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/ReedKeep/reed/releases/download/v0.1.0/reed-linux-x86_64.tar.gz"
-      sha256 "5a6b9ec4549bf409aa9befa33a959a2410ab7aa3f640c4e227b24c7f46011f08"
+      url "https://github.com/ReedKeep/reed/releases/download/v0.1.2/reed-linux-x86_64.tar.gz"
+      sha256 "b4944d63a76d94d3f95e72f327e766ce50cc51dd7081a7e31349bd595e20f705"
     end
     on_arm do
       # No ARM Linux build yet: there is no machine here to build one on. Saying so beats a 404, and

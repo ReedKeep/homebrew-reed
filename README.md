@@ -1,21 +1,14 @@
 # ReedKeep/homebrew-reed
 
-The Homebrew tap for [reed](https://github.com/ReedKeep/reed).
+**This repository exists so `brew` can find reed. There is nothing else in it.**
 
 ```sh
 brew install ReedKeep/reed/reed
 ```
 
-That's it — `brew` finds the tap from the name, so there's no separate `brew tap` step.
+Homebrew resolves a tap named `owner/name` to the repository `owner/homebrew-name`, so this is simply reed's
+address as far as `brew` is concerned. `Formula/reed.rb` is written by reed's release script from the
+checksums of the bytes it just uploaded — never by hand.
 
-Upgrading is `brew upgrade reed`. If reed is already running as a service, restart it afterwards so the
-daemon picks up the new binary:
-
-```sh
-reed down && reed up
-```
-
-> reed will tell you if you forget. A daemon whose binary changed underneath it says so and names that
-> exact command, rather than leaving you to work out why `reed merge` stopped answering.
-
-`Formula/reed.rb` is written by reed's release workflow, not by hand.
+**reed itself lives at [ReedKeep/reed](https://github.com/ReedKeep/reed).** That is where the README, the
+install scripts, the releases and the issues are. Go there.
